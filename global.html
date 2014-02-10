@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+
+	<script type="text/javascript">
+		// Set up the Listener
+		safari.application.addEventListener("command", performCommand, false);
+		safari.application.addEventListener("validate", myValidateHandler, false);
+		
+		/* Make sure settings have been configured */
+		
+		// The Global Page is being loaded, which means that the Extension is being
+		// installed or that Safari is being launched.
+		
+		/* Validation of Toolbar Items  */
+		function myValidateHandler(event)
+		{
+		    if (event.command === "resource.validator") {
+		        // Disable the button if there is no URL loaded in the tab.
+		        event.target.disabled = !event.target.browserWindow.activeTab.url || !userSetPreferences;
+		        
+		    }
+		}
+		
+		function createTab(url) {
+			var _tab;
+				_tab = safari.application.activeBrowserWindow.openTab();
+				_tab.url = url; // Set tab URL
+		}
+		
+		
+		function showHelp() {
+			createTab(safari.extension.baseURI + "help.html");
+		}
+		
+		function performCommand(event) {
+				if (event.command == "show-help-tab") {
+					showHelp();
+				}
+				
+				if (event.command === "theBar") {
+				
+				const bars = safari.extension.bars;
+				const activeBrowserWindow = safari.application.activeBrowserWindow;
+				for (var i = 0; i < bars.length; ++i) {
+				var bar = bars[i];
+				if (bar.browserWindow === activeBrowserWindow && bar.identifier === "openBar")
+				   {
+						if(bar.visible) {
+							bar.hide();
+						} else {
+							bar.show();
+						}
+					}   
+				}       
+			}
+		}
+				
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
