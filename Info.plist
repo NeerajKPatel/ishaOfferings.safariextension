@@ -41,7 +41,7 @@
 				<key>Identifier</key>
 				<string>popover.resource.userList</string>
 				<key>Width</key>
-				<real>750</real>
+				<real>670</real>
 			</dict>
 		</array>
 		<key>Toolbar Items</key>

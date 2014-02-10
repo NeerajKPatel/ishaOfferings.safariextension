@@ -11,6 +11,20 @@
     <script src="../js/application.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
 	/* functions */
+	soiUrlStr = "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/19824320&color=f36f21&theme_color=579ce6&start_track=0&show_artwork=true&buying=true&sharing=true&download=false&show_playcount=false&show_comments=false&show_user=true"
+
+	function fnOpenLink(urlVal) {
+
+		urlVal = "http://sadhguru.org/wisdom-center/?q=";
+		try {
+			if (component.value != "" && component.value != " ") {
+				safari.application.activeBrowserWindow.openTab().url = urlVal + component.value;
+			}
+		} catch (e) {
+			//alert("e: "+e);
+		}	
+		return false;
+	}
 
 	</script>
     
@@ -29,91 +43,48 @@
     		border-collapse: collapse;
     		border-spacing: 0;
     	}
-    	
-    	table {
-    		padding: 0;
-    		border-spacing: 0;
-    		font-size: 10px;
-    	}
-    	
-    	table {
-    		width:750px;
-    		min-width: 750px;
-    		background: white;
-    	}
-    	
-    	tr:nth-of-type(2n) {
-    		background: #edf5ff url('../images/bg.jpg') no-repeat left top;
-    	}
-    	
-    	
-    	td {
-    		border-left: 1px solid #bbb;
-    		border-top: 1px solid #bbb;
-    		border-bottom: 1px solid #fff;
-    		padding-left: 6px;
-    		padding-right: 6px;
-    		padding-top: 4px;
-    		padding-bottom: 4px;
-    	}
-    	
-    	th {
-    		background-color: #dddddd;
-    		background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(221, 221, 221)),to(rgb(173, 173, 173)));
-    		color: black;
-    		font-weight: 100;
-    		text-shadow: 0px 1px white;
-    		padding-left: 6px;
-    		padding-right: 6px;
-    		text-align: left;
-    		height: 24px;
-    		line-height: 24px;
-    		border-top: 1px solid #888;
-    		border-left: 1px solid #888;
-    	}
-    	
-    	td:last-of-type {
-    		border-right: 1px solid #bbb;
-    	}
-    	
-    	#search {
-    		width: 100%;
-    		background-color: #ffffff;
+
+		#header {
   			padding-top: 8px;
   			padding-bottom: 8px;
-    		background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(15, 15, 15)),to(rgb(33, 33, 33)));	
-    	}
-    	
-    	#search input {
-    		width: 98%;
-   			display: block;
-    		margin-left: auto;
-    		margin-right: auto;
-    	}
-    	
-    	
-    
-    </style>
-    
-  </head>
-  <body id="index">
-    <div id="pagewrap">
-      <div id="header">
-		<center>
-			<h1>Isha Foundation</h1>
-			<br/>
-			<h2>Be truth to yourself and enlighten yourself...</h2>
-		</center>
-      </div>
-	  <br/>
-        <label for="filter">Blog</label> <label for="filter">YouTube</label> <label for="filter">Sadhguru</label> <label for="filter">SOI</label>
-      <div id="search">
-        <label for="filter"></label> 
-        <input type="search" placeholder="Search Sadhguru's Wisdom Center" name="filter" value="" id="filter" />        
-      </div>
-      <div id="body">
-
-      </div>
-    </div>
-  </body>
-</html>
+		}
+    	    	
+    	#search {
+			float: left;
+  			padding : 4px 4px;
+			width: 420px;
+			border: 1px solid #f36f21;
+			font: normal 13px 'trebuchet MS', arial, helvetica;
+			-moz-border-radius: 50px 3px 3px 50px;
+			border-radius: 50px 3px 3px 50px;
+			-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset, 0 1px 0 rgba(255, 255, 255, 1);
+			-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset, 0 1px 0 rgba(255, 255, 255, 1);
+			box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset, 0 1px 0 rgba(255, 255, 255, 1);
+    	}    
+    </style>    
+</head>
+<body bgcolor="#FFF"> 
+<table class="body-wrap"> 
+		<tr> 
+			<td class="container"> 
+				<div class="content"> 
+				  <div id="header">
+					<div id="pattern" class="pattern" style="float: left; text-align: left;"> 
+						<!-- Search -->
+						<input id="search" name="q" maxlength="120" placeholder="Search Sadhguru's Wisdom Center" onblur="fnOpenLink(this);"/> 
+					</div>
+					<div id="logo" style="float: right;">
+							<img src="images/blog_ul.png" height="24" alt="Isha Blog" style="padding-left:7px"/>
+							<a href="Youtube_Iframe.html" target="_self"><img alt="Sadhguru on YouTube" src="images/youtube.png" height="24" style="padding-left:7px" /></a>
+							<a href="Quotes.html" target="_self"><img alt="Sadhguru's Daily Quotes" src="images/sadhguru.png" height="24" style="padding-left:7px"/></a>
+							<a href="soi.html" target="_self"><img alt="Sounds of Isha" src="images/soi.png" height="24" style="padding-left:7px"/></a>
+			
+					</div>
+				  </div>
+                  <div style="padding: 50px 0 0 25px;" id="heading2"><h2 style = "text-align:left;" >Isha Blog Updates</h2></div>
+                  <div id="blogfeed"><img src="images/loader.gif" alt="Isha Blog Updates is Loading" /></div>
+				</div> 
+			</td>
+		</tr> 
+	</table> 
+</body></html>
